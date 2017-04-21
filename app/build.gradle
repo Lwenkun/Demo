@@ -1,17 +1,7 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.tencent.tinker.patch'
 
 
-//def gitSha() {
-//    return 'git rev-parse --short HEAD'.execute().text.trim()
-//}
-
-def getTinkerIdValue() {
-    return hasProperty("TINKER_ID") ? TINKER_ID : "tinker_id_2333"
-}
-
-//def getTinkerIdValue() {
-//    return hasProperty("TINKER_ID") ? TINKER_ID : gitSha()
-//}
 
 android {
     compileSdkVersion 25
@@ -47,5 +37,4 @@ dependencies {
     compile 'io.reactivex.rxjava2:rxjava:2.0.8'
 }
 
-apply plugin: 'com.tencent.tinker.patch'
 
