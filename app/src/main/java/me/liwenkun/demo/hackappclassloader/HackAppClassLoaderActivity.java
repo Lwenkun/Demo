@@ -2,15 +2,18 @@ package me.liwenkun.demo.hackappclassloader;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 
 import java.io.File;
 import java.lang.reflect.Array;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 
 import dalvik.system.DexFile;
 import me.liwenkun.demo.R;
@@ -23,6 +26,9 @@ public class HackAppClassLoaderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hack_app_class_loader);
+
+
+
         findViewById(R.id.btn_hack).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -37,8 +43,29 @@ public class HackAppClassLoaderActivity extends AppCompatActivity {
             }
         });
 
+        Button b = findViewById_(R.id.btn_hack);
+
         AMSHookHelper.hook(this);
         PMSHookHelper.hook(this);
+      //  createAssetManager(Environment.getExternalStorageDirectory() + "/fenda.apk");
+
+    }
+
+    @SuppressWarnings("unchecked")
+    private <T extends View> T findViewById_(int id) {
+        return (T) findViewById(id);
+    }
+
+    private AssetManager createAssetManager(String dexPath) {
+        try {
+            AssetManager assetManager = AssetManager.class.newInstance();
+            Method addAssetPath = assetManager.getClass().getMethod("addAssetPath", String.class);
+            addAssetPath.invoke(assetManager, dexPath);
+            return assetManager;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
 
     }
 

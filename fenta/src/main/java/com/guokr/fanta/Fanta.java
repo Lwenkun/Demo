@@ -1,8 +1,9 @@
 package com.guokr.fanta;
 
 
-public class Fanta
+import android.app.Application;
 
+public class Fanta extends Application
 {
 
 }

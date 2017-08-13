@@ -1,6 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.tencent.tinker.patch'
-
 
 
 android {
@@ -22,10 +20,6 @@ android {
     }
 }
 
-def gitSha() {
-    return 'git rev-parse --short HEAD'.execute().text.trim()
-}
-
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
@@ -35,9 +29,11 @@ dependencies {
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
+    provided 'com.tencent.tinker:tinker-android-anno:1.7.7'
     compile 'com.tencent.tinker:tinker-android-lib:1.7.7'
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
     compile 'io.reactivex.rxjava2:rxjava:2.0.8'
+    compile project(':fenta')
 }
 
 

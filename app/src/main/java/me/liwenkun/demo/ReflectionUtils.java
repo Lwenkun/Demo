@@ -10,7 +10,8 @@ import java.lang.reflect.Modifier;
 public class ReflectionUtils {
 
     public static Class<?> get_class(String name) {
-        Class<?> result = null;
+
+          Class<?> result = null;
         try {
             result = Class.forName(name);
         } catch (Exception e) {
