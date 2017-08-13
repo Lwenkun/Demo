@@ -1,5 +1,4 @@
 apply plugin: 'com.android.application'
-apply plugin: 'com.tencent.tinker.patch'
 
 
 
@@ -35,7 +34,6 @@ dependencies {
     compile 'com.android.support:design:25.1.0'
     compile 'com.android.support.constraint:constraint-layout:1.0.2'
     testCompile 'junit:junit:4.12'
-    compile 'com.tencent.tinker:tinker-android-lib:1.7.7'
     compile 'com.squareup.retrofit2:retrofit:2.2.0'
     compile 'io.reactivex.rxjava2:rxjava:2.0.8'
 }

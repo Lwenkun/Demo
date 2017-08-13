@@ -1,1 +1,1 @@
-include ':app', ':fenta'
+include ':app'

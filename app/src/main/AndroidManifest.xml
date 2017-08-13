@@ -30,7 +30,13 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".animation.ViewAnimationActivity" />
+        <activity android:name=".animation.ViewAnimationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".hotfix.HotFixActivity" />
 
         <!-- Task Test Start -->
@@ -72,11 +78,7 @@
         </activity>
         <activity android:name=".bindservice.BindServiceActivity" />
         <activity android:name=".hackappclassloader.HackAppClassLoaderActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
