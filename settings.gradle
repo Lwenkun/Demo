@@ -1,1 +1,1 @@
-include ':app', ':fenta', ':libannotation'
+include ':app', ':libannotation'

@@ -11,6 +11,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:name="com.guokr.fanta.Fanta"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
@@ -31,7 +32,13 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
-        <activity android:name=".animation.ViewAnimationActivity" />
+        <activity android:name=".animation.ViewAnimationActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity android:name=".hotfix.HotFixActivity" />
 
         <!-- Task Test Start -->
