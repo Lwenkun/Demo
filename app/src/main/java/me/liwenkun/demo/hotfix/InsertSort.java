@@ -1,12 +1,6 @@
 package me.liwenkun.demo.hotfix;
 
-import android.os.Binder;
-
 public class InsertSort implements Sort {
-
-    private Binder binder = new Binder() {
-        public void cake() {}
-    };
 
     @Override
     public String getName() {

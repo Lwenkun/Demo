@@ -3,6 +3,7 @@ package me.liwenkun.demo.canvas;
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.os.Bundle;
+import android.support.annotation.CallSuper;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -28,6 +29,7 @@ public class CanvasActivity extends AppCompatActivity {
                 v.saveToFile(bitmap);
             }
         });
+
     }
 
     @Override

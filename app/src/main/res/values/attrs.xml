@@ -9,5 +9,10 @@
     <declare-styleable name="MyChildImageView">
         <attr name="background_" format="color"/>
     </declare-styleable>
+    
+    <declare-styleable name="MyView">
+        <attr name="myint" format="integer"/>
+        <attr name="myDrawable" format="reference"/>
+    </declare-styleable>
 
 </resources>

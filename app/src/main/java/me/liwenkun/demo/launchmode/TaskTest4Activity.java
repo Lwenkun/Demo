@@ -39,6 +39,6 @@ public class TaskTest4Activity extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         Log.d(TAG, "requestCode=" + requestCode + "; resultCode=" + resultCode);
-        super.onActivityResult(requestCode, resultCode, data);
+      //  super.onActivityResult(requestCode, resultCode, data);
     }
 }

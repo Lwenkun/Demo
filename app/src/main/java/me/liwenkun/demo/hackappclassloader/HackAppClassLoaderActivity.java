@@ -2,10 +2,21 @@ package me.liwenkun.demo.hackappclassloader;
 
 import android.content.ComponentName;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
+import android.media.Image;
 import android.os.Bundle;
 import android.os.Environment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.Toast;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.target.DrawableImageViewTarget;
+import com.bumptech.glide.request.target.Target;
+import com.bumptech.glide.request.target.ViewTarget;
+import com.bumptech.glide.request.transition.Transition;
 
 import java.io.File;
 import java.lang.reflect.Array;
@@ -23,13 +34,32 @@ public class HackAppClassLoaderActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_hack_app_class_loader);
+
+        final ImageView imageView = (ImageView) findViewById(R.id.imageView);
+
+        final ViewTarget target = new ViewTarget<ImageView, Drawable>(imageView) {
+            @Override
+            public void onResourceReady(Drawable resource, Transition<? super Drawable> transition) {
+                imageView.setImageDrawable(resource);
+                imageView.requestLayout();
+            }
+        };
+
         findViewById(R.id.btn_hack).setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
-                hackClassLoader();
-                Intent i = new Intent();
-                i.setComponent(new ComponentName("com.guokr.fanta", "com.guokr.fanta.ui.activity.SplashActivity"));
-                startActivity(i);
+
+//                hackClassLoader();
+//                Intent i = new Intent();
+//                i.setComponent(new ComponentName("com.guokr.fanta", "com.guokr.fanta.ui.activity.SplashActivity"));
+//                startActivity(i);
+
+                Glide.with(HackAppClassLoaderActivity.this)
+                        .load("http://img.bimg.126.net/photo/tGUrAepTwDesU9cfIPg0UQ==/2597732560063774539.jpg")
+                        .into(target);
+
+
 //                PackageInfo packageInfo = getPackageManager().getPackageArchiveInfo(Environment.getExternalStorageDirectory() + "/fenda.apk", 0);
 //                Intent intent = getPackageManager().getLaunchIntentForPackage(packageInfo.packageName);
 //                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -37,10 +67,15 @@ public class HackAppClassLoaderActivity extends AppCompatActivity {
             }
         });
 
+
+
+
         AMSHookHelper.hook(this);
         PMSHookHelper.hook(this);
 
     }
+
+
 
     // failed, I don't know the reason
     // log: Caused by: java.io.IOException: No original dex files found for dex location /storage/emulated/0/dex.dex

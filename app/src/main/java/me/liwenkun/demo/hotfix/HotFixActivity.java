@@ -64,7 +64,7 @@ public class HotFixActivity extends AppCompatActivity {
             }
         }, 2000);
 
-        Log.d("SortActiviiy", "tvResult -->  width:" + tvResult.getMeasuredWidth() + ", height:" + tvResult.getMeasuredHeight());
+        Log.d("SortActivity", "tvResult -->  width:" + tvResult.getMeasuredWidth() + ", height:" + tvResult.getMeasuredHeight());
         Sort sort;
         if (hasUpdate()) { //如果排序算法有更新
             sort = getNewSort(); // 应用新的排序算法

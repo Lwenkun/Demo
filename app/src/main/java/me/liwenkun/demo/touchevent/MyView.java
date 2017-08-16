@@ -25,6 +25,7 @@ public class MyView extends View {
 
     public MyView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
+
     }
 
 
